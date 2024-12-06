@@ -1,14 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>webpack starterkit</title>
   <meta name="description" content="A light foundation for your next frontend project based on webpack.">
 </head>
+
 <body>
-  <img src="images/webpack.png" alt="Webpack logo">
-  <h1>webpack starter</h1>
-  <p>✨ A lightweight foundation for your next webpack based frontend project.</p>
+  <main>
+    <h1>Share And Split</h1>
+    <nav>
+      <p id="expenses-btn" class="mode active-mode">Expenses</p>
+      <p id="balance-btn" class="mode">Balance</p>
+    </nav>
+    <div id="expenses-container" class="expenses">
+      <p class="total">Total: <span id="total-price">0</span> MAD</p>
+      <div id="activities">
+
+      </div>
+      <button id="add-btn" class="add-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+        </svg>
+      </button>
+    </div>
+    <div id="balance-container" class="balance">
+
+    </div>
+    <form id="add-form">
+      <legend>New activity</legend>
+      <label for="activity-title">Title</label>
+      <input class="input" id="activity-title" name="title" type="text" placeholder="Title">
+      <label for="activity-paid">Paid by</label>
+      <select class="input" name="paid" id="activity-paid">
+        <option value="2-Nabil">Nabil</option>
+        <option value="1-Hamza">Hamza</option>
+        <option value="3-Assia">Assia</option>
+        <option value="4-Mina">Mina</option>
+      </select>
+      <label for="activity-amount">Amount (MAD)</label>
+      <input class="input" id="activity-amount" name="amount" type="number" placeholder="Amount">
+      <div class="split">
+        <div class="split-group">
+          <p class="initial">A</p>
+          <label for="Assia">Assia</label>
+          <input class="input split-input" id="Assia" data-uid="3" name="Assia" type="number">
+        </div>
+        <div class="split-group">
+          <p class="initial">H</p>
+          <label for="Hamza">Hamza</label>
+          <input class="input split-input" id="Hamza" data-uid="1" name="Hamza" type="number">
+        </div>
+        <div class="split-group">
+          <p class="initial">N</p>
+          <label for="Nabil">Nabil</label>
+          <input class="input split-input" id="Nabil" data-uid="2" name="Nabil" type="number">
+        </div>
+        <div class="split-group">
+          <p class="initial">M</p>
+          <label for="Mina">Mina</label>
+          <input class="input split-input" id="Mina" data-uid="4" name="Mina" type="number">
+        </div>
+      </div>
+      <div class="btns">
+        <button class="btn" id="submit-btn" type="submit">Save</button>
+        <button class="btn" id="cancel-btn">Cancel</button>
+      </div>
+
+    </form>
+  </main>
 </body>
+
 </html>
