@@ -37,7 +37,6 @@ legend {
   text-align: center;
   padding: 15px;
   font-size: 28px;
-  margin-bottom: 15px;
   font-weight: 700;
 }
 
@@ -48,13 +47,20 @@ nav {
   margin-bottom: 30px;
 }
 
+h2 {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
 .expenses {
   display: block;
 }
 
 #activities {
-  height: 260px;
-  overflow-y: scroll;
+  height: 220px;
+  overflow-y: auto;
 }
 
 .balance {
@@ -87,10 +93,38 @@ nav {
 }
 
 .activity,
-.user-balance {
+.user-balance,
+.group {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+}
+
+.group {
+  border: 2px solid #ffd100;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  position: relative;
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+}
+
+#groups-list .group::after {
+  display: none;
+}
+
+.group:hover {
+  box-shadow: 0 20px 30px rgba(#000, 0.1);
 }
 
 .initial {
@@ -124,7 +158,7 @@ nav {
 }
 
 .add-btn {
-  margin: 40px auto 20px;
+  margin: 20px auto;
   display: block;
   font-size: 28px;
   cursor: pointer;
@@ -136,12 +170,32 @@ nav {
   transition: all 0.3s;
 }
 
+#goback-btn {
+  display: none;
+  position: absolute;
+  top: 30px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
 .size-6 {
-  width: 48px;
+  max-width: 48px;
   color: #fff;
 }
 
-.add-btn:hover {
+.size-7 {
+  max-width: 24px;
+  color: #202020;
+  margin-left: auto;
+}
+
+.add-btn:hover,
+#goback-btn:hover {
   background-color: #fdc43f;
   box-shadow: 0 20px 30px rgba(#000, 0.1);
 }
@@ -156,12 +210,13 @@ nav {
   color: #12d18eff;
 }
 
-#add-form {
+form {
   display: none;
   flex-direction: column;
   gap: 5px;
   position: absolute;
   padding: 20px;
+  height: 100%;
   top: 0;
   left: 0;
   width: 100%;
@@ -169,9 +224,44 @@ nav {
   background-color: #fff;
 }
 
+#participants-container {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  gap: 5px;
+  overflow: auto;
+}
+
+#add-group-form {
+  #group-title {
+    margin-bottom: 10px;
+  }
+
+  input {
+    margin-bottom: 0;
+  }
+}
+
+.add-participant-btn {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: #fdc43f;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: left;
+  margin-bottom: 20px;
+  padding: 5px 15px;
+}
+
+.add-participant-btn:hover {
+  text-decoration: underline;
+}
+
 .split {
   display: flex;
   flex-direction: column;
+  overflow: auto;
   padding: 0 20px;
 }
 
@@ -221,6 +311,11 @@ label {
   box-shadow: 0 20px 30px rgba(#000, 0.1);
 }
 
-#submit-btn {
+#submit-btn,
+#submit-grp-btn {
   background-color: #ffd100;
+}
+
+#details {
+  display: none;
 }

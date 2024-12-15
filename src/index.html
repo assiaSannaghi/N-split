@@ -11,40 +11,76 @@
 <body>
   <main>
     <h1>Share And Split</h1>
-    <nav>
-      <p id="expenses-btn" class="mode active-mode">Expenses</p>
-      <p id="balance-btn" class="mode">Balance</p>
-    </nav>
-    <div id="expenses-container" class="expenses">
-      <p class="total">Total: <span id="total-price">0</span> MAD</p>
-      <div id="activities">
-
-      </div>
-      <button id="add-btn" class="add-btn">
+    <button id="goback-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="size-7">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+      </svg>
+    </button>
+    <div id="groups-container">
+      <div id="groups-list"></div>
+      <button id="add-group-btn" class="add-btn">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
           class="size-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
         </svg>
       </button>
-    </div>
-    <div id="balance-container" class="balance">
+      <form id="add-group-form">
+        <legend>New Group</legend>
+
+        <label for="group-title">Title</label>
+        <input class="input" id="group-title" name="title" type="text" placeholder="Title">
+
+        <div id="participants-container">
+          <label id="group-participants">Participants</label>
+          <input class="input participant" aria-labelledby="group-participants" name="participant1" type="text"
+            placeholder="Participant Name">
+          <input class="input participant" aria-labelledby="group-participants" name="participant2" type="text"
+            placeholder="Participant Name">
+          <button id="add-participant-btn" class="add-participant-btn">Add Another Participant</button>
+        </div>
+
+        <div class="btns">
+          <button class="btn" id="submit-grp-btn" type="submit">Save</button>
+          <button class="btn" id="cancel-grp-btn">Cancel</button>
+        </div>
+
+      </form>
 
     </div>
-    <form id="add-form">
+    <div id="details">
+      <h2 id="group-description"></h2>
+      <nav>
+        <p id="expenses-btn" class="mode active-mode">Expenses</p>
+        <p id="balance-btn" class="mode">Balance</p>
+      </nav>
+      <div id="expenses-container" class="expenses">
+        <p class="total">Total: <span id="total-price">0</span> MAD</p>
+        <div id="activities">
+        </div>
+        <button id="add-activity-btn" class="add-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+        </button>
+      </div>
+
+      <div id="balance-container" class="balance"></div>
+    </div>
+
+    <form id="add-activity-form">
       <legend>New activity</legend>
       <label for="activity-title">Title</label>
       <input class="input" id="activity-title" name="title" type="text" placeholder="Title">
       <label for="activity-paid">Paid by</label>
       <select class="input" name="paid" id="activity-paid">
-        <option value="2-Nabil">Nabil</option>
-        <option value="1-Hamza">Hamza</option>
-        <option value="3-Assia">Assia</option>
-        <option value="4-Mina">Mina</option>
+
       </select>
       <label for="activity-amount">Amount (MAD)</label>
       <input class="input" id="activity-amount" name="amount" type="number" placeholder="Amount">
-      <div class="split">
-        <div class="split-group">
+      <div id="splits" class="split">
+        <!-- <div class="split-group">
           <p class="initial">A</p>
           <label for="Assia">Assia</label>
           <input class="input split-input" id="Assia" data-uid="3" name="Assia" type="number">
@@ -63,7 +99,7 @@
           <p class="initial">M</p>
           <label for="Mina">Mina</label>
           <input class="input split-input" id="Mina" data-uid="4" name="Mina" type="number">
-        </div>
+        </div> -->
       </div>
       <div class="btns">
         <button class="btn" id="submit-btn" type="submit">Save</button>
